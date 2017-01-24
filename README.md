@@ -1,5 +1,5 @@
 # ClearFlagsMobile
-A Unity Image Effect to reproduce the Clear Flags camera effect for mobile
+A Unity Image Effect to reproduce the Clear Flags camera effect for mobile (Android/IOS)
 
 Yet to test on my mobile, but I see no reason why this wouldn't work (testing it asap).
 
