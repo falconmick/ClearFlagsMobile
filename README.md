@@ -3,8 +3,11 @@ A Unity Image Effect to reproduce the Clear Flags camera effect for mobile (Andr
 
 ##Make sure that you add the shader to the build:
 Edit -> Project Settings -> Graphics:
+
 Always Included Shaders (increase by 1)
+
 click the circle icon to the right of the blank array slot and select "Hidden/ClearFlagsImageEffect"
+
 
 If you don't do this, you will get a black screen when the scene with the camera which has the effect is loaded once deployed to IOS/Android
 
