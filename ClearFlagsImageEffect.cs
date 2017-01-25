@@ -27,8 +27,7 @@ public class ClearFlagsImageEffect : MonoBehaviour
         }
     }
 
-    private RenderTexture _pastFrame;
-    private bool _isEnabled = false;
+	private RenderTexture _pastFrame;
 
     // if your scene is using transparency, you will need to set this
     // to the lowest alpha you assign. However this will result in your background
@@ -43,28 +42,14 @@ public class ClearFlagsImageEffect : MonoBehaviour
     }
 
     void OnRenderImage(RenderTexture src, RenderTexture dst)
-    {
-        if (_isEnabled)
-        {
-            material.SetTexture("_PrevFrame", _pastFrame);
-            material.SetFloat("_MaxTransparency", Mathf.Clamp(_maxTransparency, 0, 1));
-            Graphics.Blit(src, dst, material);
-        }
-        else
-        {
-            Graphics.Blit(src, dst);
-        }
-
+    { 
+		// pass previous frame in to the shader
+        material.SetTexture("_PrevFrame", _pastFrame);
+		// to allow people to use transparency we must accept other transparencies other than 1
+        material.SetFloat("_MaxTransparency", Mathf.Clamp(_maxTransparency, 0, 1));
+		// run the shader
+		Graphics.Blit(src, dst, material);
+		// backup the frame to re-use next itteration
         Graphics.Blit(RenderTexture.active, _pastFrame);
-    }
-
-    public void EnableEffect()
-    {
-        _isEnabled = true;
-    }
-
-    public void DisableEffect()
-    {
-        _isEnabled = false;
     }
 }

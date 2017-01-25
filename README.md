@@ -1,10 +1,12 @@
 # ClearFlagsMobile
 A Unity Image Effect to reproduce the Clear Flags camera effect for mobile (Android/IOS)
 
-Yet to test on my mobile, but I see no reason why this wouldn't work (testing it asap).
+##Make sure that you add the shader to the build:
+Edit -> Project Settings -> Graphics:
+Always Included Shaders (increase by 1)
+click the circle icon to the right of the blank array slot and select "Hidden/ClearFlagsImageEffect"
 
-todo:
-rather than setting a min transparency amount, blend the previous frame in as (1 - col.a) to properly simulate the clear flags
+If you don't do this, you will get a black screen when the scene with the camera which has the effect is loaded once deployed to IOS/Android
 
 Effect Example:
 

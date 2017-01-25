@@ -52,6 +52,9 @@
 				if ((_MaxTransparency == 0 && col.a == 0) || col.a < _MaxTransparency) {
 					col = prev;
 				}
+
+				//col = lerp(prev, col, col.a);
+				//col.a = 1;
 				return col;
 			}
 			ENDCG
